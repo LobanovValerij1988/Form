@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         'pale': '#5F5F68',
         'custom-lightgreen': '#02FF83',
+        'custom-darkblue': '#000D19',
         'custom-super-lightgreen': '#64D59F',
         "custom-error": '#CD4218'
       },

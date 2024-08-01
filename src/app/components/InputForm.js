@@ -1,69 +1,105 @@
+'use client'
 import CustomInput from "@/app/components/CustomInput";
+import {useState} from "react";
+import CustomCheckBox from "@/app/components/CustomCheckbox";
 
-export default function InputForm() {
-    return (
+export default function InputForm({dachform, dachfenster }) {
+   const [data, setData] = useState( {
+       anrede: "Herr",
+       name: "",
+       telefonnummer: "",
+       postleitzahl: "",
+       stadt: "",
+       strasse: "",
+       hausnummer: ""
+   });
+   const [checkError, setCheckError] = useState(false);
+   const onSubmit = async (e) => {
+      e.preventDefault();
+      if(!data.anrede || !data.name || !data.telefonnummer || !data.postleitzahl || !data.stadt || !data.strasse || !data.hausnummer ) {
+          setCheckError(true);
+          return;
+      }
+      else {
+          const response = await fetch('https://65590262e93ca47020a9fce8.mockapi.io/insert', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({...data, dachform, dachfenster }),
+          });
+
+          const result = await response.json();
+          console.log(result);
+      }
+   }
+   return (
         <form className="w-full mx-auto px-2.5 pb-4 sm:w-[430px] sm:px">
-            <div className="mb-1 sm:mb:2.5">
-                <legend className="ml-1 text-sm text-pale">Anrede</legend>
-                <input type="radio" name="gender" id="Herr" value="Herr" checked/>
-                <label htmlFor="Herr" className="pl-1.5 mr-9">Herr</label>
-                <input type="radio" name="gender" id="Frau" value="Frau"/>
-                <label className="pl-1.5" htmlFor="Frau">Frau</label>
-            </div>
+            <CustomCheckBox label="Anrede" value = {data} onValueSet={setData} />
             <CustomInput
                 label="Name"
-                isError={true}
+                checkError={checkError}
+                onValueSet={setData}
                 placeholder="Vor- und Nachname"
                 errorMsg="Field is required"
                 type="text"
-                value=""
+                value={data}
             />
             <CustomInput
                 label="Telefonnummer"
-                isError={true}
+                checkError={checkError}
+                onValueSet={setData}
                 placeholder="+49 123 456 789"
                 errorMsg="Field is required"
-                value="tel"
+                value={data}
                 type="tel"
             />
             <CustomInput
                 label="Postleitzahl"
-                isError={true}
+                checkError={checkError}
+                onValueSet={setData}
                 placeholder="12277"
                 errorMsg="Field is required"
                 type="text"
-                value=""
+                value={data}
 
             />
             <CustomInput
-                label="Ort"
-                isError={false}
+                label="Stadt"
+                checkError={checkError}
+                onValueSet={setData}
                 placeholder="Berlin"
                 errorMsg="Field is required"
                 type="text"
-                value=""
+                value={data}
             />
             <div className="flex gap-x-2.5">
                 <CustomInput
-                    label="Straße"
-                    isError={false}
+                    label="Strasse"
+                    checkError={checkError}
+                    onValueSet={setData}
                     placeholder="Berlin"
                     errorMsg=""
                     type="text"
-                    value="Straße"
+                    value={data}
                     classes=" flex-2"
                 />
                 <CustomInput
                     label="Hausnummer"
-                    isError={false}
+                    checkError={checkError}
+                    onValueSet={setData}
                     placeholder="Nr."
                     errorMsg=""
                     type="text"
-                    value="5"
+                    value={data}
                     classes=" flex-1"
                 />
             </div>
-            <button type="submit" className="w-full h-14 bg-custom-lightgreen rounded-[32px] sm:h-[56px]">
+            <button
+                type="submit"
+                className="w-full h-14 bg-custom-lightgreen rounded-[32px] sm:h-[56px]"
+                onClick={onSubmit}
+            >
                 Ja, das ist mein Hausdach.
             </button>
         </form>

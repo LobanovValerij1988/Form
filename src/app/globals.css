@@ -2,3 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .custom-form-paddings {
+        @apply  px-2.5 sm:px-10;
+    }
+
+    .custom-card-selected {
+        border: 2px solid theme(colors.custom-darkblue) !important;  ;
+    }
+
+    .custom-card-selected .custom-card-bottom {
+        @apply h-full text-white bg-custom-darkblue flex items-center sm:flex sm:flex-col sm:justify-center
+   }
+
+    @media (min-width: 640px) { /* sm breakpoint */
+        .custom-card-selected .custom-card-image {
+            width: 75% !important; /* Adjust according to your design */
+        }
+    }
+
+    .custom-card-selected .custom-card-subscription {
+        @apply text-white
+    }
+}
