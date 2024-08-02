@@ -11,6 +11,7 @@ import {useRef, useState} from "react";
 
 const settings = {
     infinite: true,
+    arrows: false,
     speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
