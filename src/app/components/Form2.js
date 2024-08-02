@@ -1,6 +1,4 @@
-import CustomProgressBar from "./CustomProgressBar";
 import CardHolder from "@/app/components/CardHolder";
-import Link from "next/link";
 
 const  cards = [
     {

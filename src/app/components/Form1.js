@@ -1,5 +1,4 @@
 import CardHolder from "@/app/components/CardHolder";
-import CustomProgressBar from "@/app/components/CustomProgressBar";
 
 const  cards = [
     {

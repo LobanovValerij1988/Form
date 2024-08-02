@@ -29,7 +29,7 @@ export default function Home() {
   const onSelectWindow = (e)=>{
         setSelectedTypeOfWindow(e.currentTarget.getAttribute('data-value'));
         sliderRef.current.slickGoTo(2);
-      setIsThirdForm(true);
+        setIsThirdForm(true);
         setProgress(95);
   }
 

@@ -1,4 +1,3 @@
-import CustomProgressBar from "@/app/components/CustomProgressBar";
 import InputForm from "@/app/components/InputForm";
 
 export default function Form3(props) {
