@@ -1,7 +1,7 @@
 'use client'
-import CustomInput from "@/app/components/CustomInput";
+import CustomInput from "@/app/components/cutomCompoments/CustomInput";
 import {useState} from "react";
-import CustomCheckBox from "@/app/components/CustomCheckbox";
+import CustomCheckBox from "@/app/components/cutomCompoments/CustomCheckbox";
 
 export default function InputForm({dachform, dachfenster }) {
    const [data, setData] = useState( {

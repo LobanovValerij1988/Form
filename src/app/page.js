@@ -3,10 +3,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-import Form1 from "@/app/components/Form1";
-import Form2 from "@/app/components/Form2";
-import Form3 from "@/app/components/Form3";
-import CustomProgressBar from "@/app/components/CustomProgressBar";
+import Form1 from "@/app/components/forms/Form1";
+import Form2 from "@/app/components/forms/Form2";
+import Form3 from "@/app/components/forms/Form3";
+import CustomProgressBar from "@/app/components/cutomCompoments/CustomProgressBar";
 import {useRef, useState} from "react";
 
 const settings = {

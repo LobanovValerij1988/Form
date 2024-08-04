@@ -1,4 +1,4 @@
-import CardHolder from "@/app/components/CardHolder";
+import CardHolder from "@/app/components/forms/CardHolder";
 
 const  cards = [
     {

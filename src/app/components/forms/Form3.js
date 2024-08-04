@@ -1,4 +1,4 @@
-import InputForm from "@/app/components/InputForm";
+import InputForm from "@/app/components/card/InputForm";
 
 export default function Form3(props) {
     return (
